@@ -1,6 +1,7 @@
 import React from "react";
 import App from "./App";
 import Card from "./Card"
+import './Movies.css'
 
 const Movies = ({movieArray}) => {
     const movieCards = movieArray.movies.map(movie => {
