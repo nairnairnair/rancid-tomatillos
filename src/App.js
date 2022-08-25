@@ -1,15 +1,15 @@
 import React, {Component} from 'react'
 import './App.css'
 import movieData from './movieData'
-// import Card from './Card'
+import Card from './Card'
 import Movies from './Movies'
+import Modal from './Modal'
 
 class App extends Component {
   constructor(){
     super()
-    this.state = movieData
-    
-    console.log(this.state);
+    this.state = movieData    
+    // console.log(this.state);
   }
   render(){
     return (

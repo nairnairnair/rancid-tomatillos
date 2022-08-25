@@ -7,13 +7,14 @@ const Movies = ({movieArray}) => {
     const movieCards = movieArray.movies.map(movie => {
         return ( 
             <Card 
+                film={movie}
                 id={movie.id}
                 key={movie.id}
                 title={movie.title} 
                 poster_path={movie.poster_path} 
                 backdrop_path={movie.backdrop_path} 
                 average_rating={movie.average_rating} 
-                release_date={movie.release_date} 
+                release_date={movie.release_date}
             />
         )
     })
