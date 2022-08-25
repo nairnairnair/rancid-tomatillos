@@ -1,17 +1,22 @@
 import React, {Component} from 'react'
 import './App.css'
 import movieData from './movieData'
+// import Card from './Card'
+import Movies from './Movies'
 
 class App extends Component {
   constructor(){
     super()
-    this.state = {
-    }
-    console.log(movieData);
+    this.state = movieData
+    
+    console.log(this.state);
   }
   render(){
     return (
-      <h1>Rancid Tomatillos</h1>
+      <main>
+        <h1>Rancid Tomatillos</h1>
+        <Movies movieArray={this.state}/>
+      </main>
     )
   }
 }

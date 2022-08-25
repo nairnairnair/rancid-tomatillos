@@ -1,11 +1,27 @@
 import React from "react";
 import App from "./App";
-//need to add Card.js for import 
+import Card from "./Card"
 
-const Movies = ({}) => {
-    const movieCards = movies.map(movie => {
-        return 
+const Movies = ({movieArray}) => {
+    const movieCards = movieArray.movies.map(movie => {
+        return ( 
+            <Card 
+                id={movie.id}
+                key={movie.id}
+                title={movie.title} 
+                poster_path={movie.poster_path} 
+                backdrop_path={movie.backdrop_path} 
+                average_rating={movie.average_rating} 
+                release_date={movie.release_date} 
+            />
+        )
     })
+
+    return (
+        <div className="movies-container">
+            {movieCards}
+        </div>
+    )
 }
 
 export default Movies 
