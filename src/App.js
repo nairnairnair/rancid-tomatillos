@@ -8,17 +8,36 @@ import Modal from './Modal'
 class App extends Component {
   constructor(){
     super()
-    this.state = {movies: movieData,
-    wasClicked: []
+    this.state = {
+      movies: movieData,
+      wasClicked: []
     }   
     // console.log(this.state);
   }
 
-  render(){
+  filterMovies = (event) => {
+    const filteredMovies = this.state.movies.movies.filter((movie) => {
+      return movie.id === parseInt(event.target.id)
+    })
+
+    this.setState({wasClicked: filteredMovies})
+  }
+
+  componentDidMount(){
+    //fetch goes here
+    console.log('mounted successfully')
+  }
+
+  componentDidUpdate(){
+    console.log('updated state');
+  }
+
+  render = () => {
     return (
       <main>
         <h1>Rancid Tomatillos</h1>
-        <Movies movieArray={this.state.movies}/>
+            {this.state.wasClicked.length && <Modal props={this.state.wasClicked}/>}
+        <Movies movieArray={this.state.movies} filterMovies={this.filterMovies}/>
       </main>
     )
   }
