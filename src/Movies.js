@@ -3,7 +3,7 @@ import App from "./App";
 import Card from "./Card"
 import './Movies.css'
 
-const Movies = ({movieArray}) => {
+const Movies = ({movieArray, filterMovies}) => {
     const movieCards = movieArray.movies.map(movie => {
         return ( 
             <Card 
@@ -15,6 +15,7 @@ const Movies = ({movieArray}) => {
                 backdrop_path={movie.backdrop_path} 
                 average_rating={movie.average_rating} 
                 release_date={movie.release_date}
+                filterMovies={filterMovies}
             />
         )
     })
