@@ -8,14 +8,17 @@ import Modal from './Modal'
 class App extends Component {
   constructor(){
     super()
-    this.state = movieData    
+    this.state = {movies: movieData,
+    wasClicked: []
+    }   
     // console.log(this.state);
   }
+
   render(){
     return (
       <main>
         <h1>Rancid Tomatillos</h1>
-        <Movies movieArray={this.state}/>
+        <Movies movieArray={this.state.movies}/>
       </main>
     )
   }
