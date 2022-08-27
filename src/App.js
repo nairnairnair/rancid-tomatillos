@@ -19,7 +19,6 @@ class App extends Component {
     const filteredMovies = this.state.movies.movies.filter((movie) => {
       return movie.id === parseInt(event.target.id)
     })
-
     this.setState({wasClicked: filteredMovies})
   }
 
@@ -32,11 +31,15 @@ class App extends Component {
     console.log('updated state');
   }
 
+  clearClickState = () => {
+    this.setState(this.state.wasClicked = [])
+  }
+
   render = () => {
     return (
       <main>
         <h1>Rancid Tomatillos</h1>
-            {this.state.wasClicked.length && <Modal props={this.state.wasClicked}/>}
+            {this.state.wasClicked.length && <Modal props={this.state.wasClicked} clearClickState={this.clearClickState}/>}
         <Movies movieArray={this.state.movies} filterMovies={this.filterMovies}/>
       </main>
     )
