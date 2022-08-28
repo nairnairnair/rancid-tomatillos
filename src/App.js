@@ -10,25 +10,37 @@ class App extends Component {
     super()
     this.state = {
       movies: movieData,
-      wasClicked: []
+      wasClicked: [],
+      showModal: false
     }   
-    // console.log(this.state);
+    // decide whether to render movies or render the modal over top of the movies.
   }
-
+  
   filterMovies = (event) => {
     const filteredMovies = this.state.movies.movies.filter((movie) => {
       return movie.id === parseInt(event.target.id)
     })
-    this.setState({wasClicked: filteredMovies})
+    this.setState({wasClicked: filteredMovies, showModal:true})
   }
+
+  //if showModal is true, disable outside click
 
   componentDidMount(){
     //fetch goes here
     console.log('mounted successfully')
   }
 
+  handleOpenModal = () => {
+    this.setState({showModal : true})
+  }
+
+  handleCloseModal = () => {
+    this.setState({showModal : false})
+  }
+
   componentDidUpdate(){
     console.log('updated state');
+    console.log(this.state);
   }
 
   clearClickState = () => {
@@ -39,8 +51,8 @@ class App extends Component {
     return (
       <main>
         <h1>Rancid Tomatillos</h1>
-            {this.state.wasClicked.length && <Modal props={this.state.wasClicked} clearClickState={this.clearClickState}/>}
-        <Movies movieArray={this.state.movies} filterMovies={this.filterMovies}/>
+            {this.state.wasClicked.length && <Modal props={this.state.wasClicked} clearClickState={this.clearClickState} handleCloseModal={this.handleCloseModal}/>}
+        <Movies movieArray={this.state.movies} filterMovies={this.filterMovies} />
       </main>
     )
   }
