@@ -4,18 +4,19 @@ import Card from "./Card"
 import './Modal.css'
 
 const Modal = ({props, clearClickState}) => {
+    console.log(props);
         return (
                 <section className="modal" data-backdrop="static">
-                    <img className="modal-image" src={`${props[0].backdrop_path}`}/>
-                    <h1 className="title">{props[0].title}</h1>
-                    <p className="release-date">Release Date: {props[0].release_date}</p>
-                    {/* <small className="runtime">Runtime:</small> */}
-                    {/* <h2 className="tagline">Tagline:</h2> */}
-                    {/* <p className="genre">Genre:</p>  */}
-                    <p className="avg-rating">Average Rating: {props[0].average_rating.toFixed(2)}</p>
-                    {/* <article className="overview">Overview</article> */}
-                    {/* <small className="budget">Budget:</small> */}
-                    {/* <small className="revenue">Revenue:</small> */}
+                    <img className="modal-image" src={`${props.backdropPath}`}/>
+                    <h1 className="title">{props.title}</h1>
+                    <p className="release-date">Release Date: {props.releaseDate}</p>
+                    <small className="runtime">Runtime: {props.runtime} minutes</small>
+                    <h2 className="tagline">{props.tagline}</h2> 
+                    <p className="genre">{props.genres}</p> 
+                    <p className="avg-rating">Average Rating: {props.averageRating}</p>
+                    <article className="overview">{props.overview}</article>
+                    {/* <small className="budget">Budget: {props.budget}</small>
+                    <small className="revenue">Revenue: {props.revenue}</small> */}
                     <button className="close-button" onClick={() => {
                         clearClickState();
                     }}>X</button>

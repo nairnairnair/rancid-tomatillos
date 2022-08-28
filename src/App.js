@@ -10,7 +10,22 @@ class App extends Component {
     this.state = {
       movies: [],
       wasClicked: [],
-      showModal: false
+      showModal: false,
+      movie: {
+        id: '',
+        title: '',
+        posterPath: '',
+        backdropPath: '',
+        releaseDate: '',
+        overview: '',
+        genres: '',
+        budget: '',
+        revenue: '',
+        runtime: '',
+        tagline: '',
+        averageRating: '',
+        error: ''
+      }
     }   
   }
   
@@ -19,18 +34,48 @@ class App extends Component {
       return movie.id === parseInt(event.target.id)
     })
     this.setState({wasClicked: filteredMovies, showModal:true})
+    this.getOneData(filteredMovies[0].id)
+  }
+
+  getAllData = (id) => {
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)  
+    .then(rsp => {
+      if (!rsp.ok) {
+        throw Error(rsp.status)
+      } else {
+                return rsp.json()
+            }           
+        })
+    .then((data) => this.setState({movies: data.movies}))
+  }
+
+  getOneData = (id) => {
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)  
+    .then(rsp => {
+      if (!rsp.ok) {
+        throw Error(rsp.status)
+      } else {
+                return rsp.json()
+            }           
+        })
+    .then((data) => this.setState({movie: {
+        id: data.movie.id,
+        title: data.movie.title,
+        posterPath: data.movie.poster_path ,
+        backdropPath: data.movie.backdrop_path,
+        releaseDate: data.movie.release_date,
+        overview:data.movie.overview,
+        genres: data.movie.genres,
+        budget: data.movie.budget,
+        revenue: data.movie.revenue,
+        runtime: data.movie.runtime,
+        tagline: data.movie.tagline ,
+        averageRating: data.movie.average_rating
+    }}))
   }
 
   componentDidMount(){
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies`)  
-    .then(rsp => {
-            if (!rsp.ok) {
-                throw Error(rsp.status)
-            } else {
-                return rsp.json()
-            }
-        })
-    .then((data) => this.setState({movies: data.movies}))
+    this.getAllData('')
   }
 
   componentDidUpdate(){
@@ -54,8 +99,8 @@ class App extends Component {
     return (
       <main>
         <h1>Rancid Tomatillos</h1>
-            {this.state.wasClicked.length && <Modal props={this.state.wasClicked} clearClickState={this.clearClickState} handleCloseModal={this.handleCloseModal}/>}
-        <Movies movieArray={this.state.movies} filterMovies={this.filterMovies} />
+            {this.state.wasClicked.length && <Modal props={this.state.movie} clearClickState={this.clearClickState} handleCloseModal={this.handleCloseModal}/>}
+        <Movies movieArray={this.state.movies} filterMovies={this.filterMovies}/>
       </main>
     )
   }

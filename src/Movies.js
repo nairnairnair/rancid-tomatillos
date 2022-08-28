@@ -4,7 +4,7 @@ import Card from "./Card"
 import './Movies.css'
 
 const Movies = ({movieArray, filterMovies}) => {
-    const movieCards = movieArray.map(movie => {
+    const movieCards = movieArray.map(movie => {  
         return ( 
             <Card 
                 film={movie}
