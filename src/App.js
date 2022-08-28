@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import './App.css'
-import movieData from './movieData'
 import Card from './Card'
 import Movies from './Movies'
 import Modal from './Modal'
@@ -9,25 +8,34 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      movies: movieData,
+      movies: [],
       wasClicked: [],
       showModal: false
     }   
-    // decide whether to render movies or render the modal over top of the movies.
   }
   
   filterMovies = (event) => {
-    const filteredMovies = this.state.movies.movies.filter((movie) => {
+    const filteredMovies = this.state.movies.filter((movie) => {
       return movie.id === parseInt(event.target.id)
     })
     this.setState({wasClicked: filteredMovies, showModal:true})
   }
 
-  //if showModal is true, disable outside click
-
   componentDidMount(){
-    //fetch goes here
-    console.log('mounted successfully')
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies`)  
+    .then(rsp => {
+            if (!rsp.ok) {
+                throw Error(rsp.status)
+            } else {
+                return rsp.json()
+            }
+        })
+    .then((data) => this.setState({movies: data.movies}))
+  }
+
+  componentDidUpdate(){
+    console.log('updated state');
+    console.log(this.state);
   }
 
   handleOpenModal = () => {
@@ -36,11 +44,6 @@ class App extends Component {
 
   handleCloseModal = () => {
     this.setState({showModal : false})
-  }
-
-  componentDidUpdate(){
-    console.log('updated state');
-    console.log(this.state);
   }
 
   clearClickState = () => {
