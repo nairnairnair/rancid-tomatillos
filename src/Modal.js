@@ -4,9 +4,8 @@ import Card from "./Card"
 import './Modal.css'
 
 const Modal = ({props, clearClickState}) => {
-    console.log('cc', clearClickState);
         return (
-                <section className="modal">
+                <section className="modal" data-backdrop="static">
                     <img className="modal-image" src={`${props[0].backdrop_path}`}/>
                     <h1 className="title">{props[0].title}</h1>
                     <p className="release-date">Release Date: {props[0].release_date}</p>
@@ -17,7 +16,9 @@ const Modal = ({props, clearClickState}) => {
                     {/* <article className="overview">Overview</article> */}
                     {/* <small className="budget">Budget:</small> */}
                     {/* <small className="revenue">Revenue:</small> */}
-                    <button className="close-button" onClick={console.log('button works')}>X</button>
+                    <button className="close-button" onClick={() => {
+                        clearClickState();
+                    }}>X</button>
                 </section>
         )
     }
