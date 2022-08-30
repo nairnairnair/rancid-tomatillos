@@ -97,15 +97,25 @@ class App extends Component {
     this.setState(this.state.wasClicked = [])
   }
 
-  render = () => {
+  render() {
     return (
-      <main>
-        <h1>Rancid Tomatillos</h1>
-            {this.state.wasClicked.length && <Modal props={this.state.movie} clearClickState={this.clearClickState} handleCloseModal={this.handleCloseModal}/>}
-            <Movies movieArray={this.state.movies} filterMovies={this.filterMovies}/>
+      <main className="App">
+        <h1>Rancid Tomatillos</h1> 
+        <Route path='/' render={() =><Movies movieArray={this.state.movies} filterMovies={this.filterMovies}/>}/>
+        <Route
+          exact path="/:id"      
+          render={({match}) => { 
+            console.log("m", match)
+
+            // const creatureToRender = whichAnimal.find(creature => creature.id === parseInt(match.params.id))
+
+            return <Modal props={this.state.movie} clearClickState={this.clearClickState} handleCloseModal={this.handleCloseModal}/>
+          }}
+        />
       </main>
     )
+   }
   }
-}
-
 export default App;
+
+
