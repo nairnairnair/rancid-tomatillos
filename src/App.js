@@ -1,8 +1,10 @@
 import React, {Component} from 'react'
+import {Route} from 'react-router-dom'
 import './App.css'
 import Card from './Card'
 import Movies from './Movies'
 import Modal from './Modal'
+
 
 class App extends Component {
   constructor(){
@@ -100,7 +102,7 @@ class App extends Component {
       <main>
         <h1>Rancid Tomatillos</h1>
             {this.state.wasClicked.length && <Modal props={this.state.movie} clearClickState={this.clearClickState} handleCloseModal={this.handleCloseModal}/>}
-        <Movies movieArray={this.state.movies} filterMovies={this.filterMovies}/>
+            <Movies movieArray={this.state.movies} filterMovies={this.filterMovies}/>
       </main>
     )
   }
