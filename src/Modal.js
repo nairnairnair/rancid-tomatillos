@@ -2,6 +2,7 @@ import React from "react";
 import Movies from "./Movies";
 import Card from "./Card"
 import './Modal.css'
+import { Link } from 'react-router-dom';
 
 const Modal = ({props, clearClickState}) => {
     console.log(props);
@@ -17,9 +18,8 @@ const Modal = ({props, clearClickState}) => {
                     <article className="overview">{props.overview}</article>
                     {/* <small className="budget">Budget: {props.budget}</small>
                     <small className="revenue">Revenue: {props.revenue}</small> */}
-                    <button className="close-button" onClick={() => {
-                        clearClickState();
-                    }}>X</button>
+                    <Link to={`/`} className='back-btn'><button className="close-button" onClick={() => {clearClickState();
+                    }}>X</button></Link>
                 </section>
         )
     }
