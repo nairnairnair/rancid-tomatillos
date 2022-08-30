@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import {Route} from 'react-router-dom'
 import './App.css'
-import Card from './Card'
 import Movies from './Movies'
 import Modal from './Modal'
 
@@ -11,8 +10,6 @@ class App extends Component {
     super()
     this.state = {
       movies: [],
-      wasClicked: [],
-      showModal: false,
       movie: {
         id: '',
         title: '',
@@ -35,7 +32,6 @@ class App extends Component {
     const filteredMovies = this.state.movies.filter((movie) => {
       return movie.id === parseInt(event.target.id)
     })
-    this.setState({wasClicked: filteredMovies, showModal:true})
     this.getOneData(filteredMovies[0].id)
   }
 
@@ -80,23 +76,6 @@ class App extends Component {
     this.getAllData('')
   }
 
-  componentDidUpdate(){
-    console.log('updated state');
-    console.log(this.state);
-  }
-
-  handleOpenModal = () => {
-    this.setState({showModal : true})
-  }
-
-  handleCloseModal = () => {
-    this.setState({showModal : false})
-  }
-
-  clearClickState = () => {
-    this.setState(this.state.wasClicked = [])
-  }
-
   render() {
     return (
       <main className="App">
@@ -104,14 +83,10 @@ class App extends Component {
         <Route path='/' render={() =><Movies movieArray={this.state.movies} filterMovies={this.filterMovies}/>}/>
         <Route
           exact path="/:id"      
-          render={({match}) => { 
-            console.log("m", match)
-
-            // const creatureToRender = whichAnimal.find(creature => creature.id === parseInt(match.params.id))
-
-            return <Modal props={this.state.movie} clearClickState={this.clearClickState} handleCloseModal={this.handleCloseModal}/>
-          }}
-        />
+          render={() => { 
+            return <Modal props={this.state.movie}/>
+          }
+        }/>
       </main>
     )
    }
