@@ -1,5 +1,4 @@
 import React from "react";
-import App from "./App";
 import Card from "./Card"
 import './Movies.css'
 import { Link } from 'react-router-dom';
@@ -13,11 +12,7 @@ const Movies = ({movieArray, filterMovies}) => {
                         film={movie}
                         id={movie.id}
                         key={movie.id}
-                        title={movie.title} 
                         poster_path={movie.poster_path} 
-                        backdrop_path={movie.backdrop_path} 
-                        average_rating={movie.average_rating} 
-                        release_date={movie.release_date}
                         filterMovies={filterMovies}
                     />
                 </Link>
