@@ -24,4 +24,4 @@ const Modal = ({props, clearClickState}) => {
         )
     }
 
-export default Modal
+export default Modal    
