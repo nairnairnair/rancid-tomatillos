@@ -5,3 +5,8 @@
     grid-column-gap: 5px;
     grid-row-gap: 5px;
 }
+
+.id-link{
+    width: 100px;
+    height: 100px;
+}
