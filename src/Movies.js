@@ -7,15 +7,13 @@ const Movies = ({movieArray, filterMovies}) => {
     const movieCards = movieArray.map(movie => {  
         return ( 
             <div>
-                <Link to={`/${movie.id}`} className='id-link'>
-                    <Card 
-                        film={movie}
-                        id={movie.id}
-                        key={movie.id}
-                        poster_path={movie.poster_path} 
-                        filterMovies={filterMovies}
-                    />
-                </Link>
+                <Card 
+                    film={movie}
+                    id={movie.id}
+                    key={movie.id}
+                    poster_path={movie.poster_path} 
+                    filterMovies={filterMovies}
+                />
             </div>
         )
     })
