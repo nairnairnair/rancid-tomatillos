@@ -6,7 +6,7 @@ import Notfound from "./Notfound";
 const Modal = ({props}) => {
     return (
             <section className="modal" data-backdrop="static">
-                <img className="modal-image" src={`${props.backdropPath}`}/>
+                <img className="modal-image" src={`${props.backdropPath}`} alt={`${props.title} poster`}/>
                 <h1 className="title">{props.title}</h1>
                 <p className="release-date">Release Date: {props.releaseDate}</p>
                 <small className="runtime">Runtime: {props.runtime} minutes</small>

@@ -40,8 +40,9 @@ class App extends Component {
   getAllData = (id) => {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)  
     .then(rsp => {
+      console.log(rsp)
       if (!rsp.ok) {
-        throw Error(rsp.status)
+        throw Error(console.log('you fucked up!'), rsp.status)
       } else {
               return rsp.json()
             }           

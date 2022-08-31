@@ -11,6 +11,7 @@ const Movies = ({movieArray, filterMovies}) => {
                     film={movie}
                     id={movie.id}
                     key={movie.id}
+                    title={movie.title}
                     poster_path={movie.poster_path} 
                     filterMovies={filterMovies}
                 />
