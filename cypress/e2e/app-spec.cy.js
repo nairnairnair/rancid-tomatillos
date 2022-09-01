@@ -15,7 +15,7 @@ describe('User navigating main page', () => {
   })
   
   it('Should complete fetch() on a healthy 201 response', () => {
-    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
       statusCode: 201,
       body: {
         id: 694919,
