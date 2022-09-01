@@ -1,0 +1,23 @@
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #181718;
+    width: 50vw;
+    height: 90vh;
+    border-radius: 0.5rem;
+    color: aliceblue
+}
+
+.modal-image {
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    width: 50vw;
+    height: auto;
+}
+
+.hidden {
+    display:none
+}
