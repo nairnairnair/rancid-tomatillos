@@ -1,7 +1,7 @@
 import React from "react";
 import './Modal.css'
 import { Link } from 'react-router-dom';
-import Notfound from "./Notfound";
+
 
 const Modal = ({props}) => {
     return (

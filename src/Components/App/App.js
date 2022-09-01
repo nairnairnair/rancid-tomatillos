@@ -91,7 +91,7 @@ class App extends Component {
               }
           }/>
           <Route exact path='/' render={() =><Movies movieArray={this.state.movies} filterMovies={this.filterMovies}/>}/>
-          <Route component={Notfound}
+          <Route component={Notfound} />
         </Switch>
       </main>
     )
