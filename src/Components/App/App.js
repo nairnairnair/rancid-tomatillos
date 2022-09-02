@@ -3,9 +3,7 @@ import {Route, Switch} from 'react-router-dom'
 import './App.css'
 import Movies from '../Movies/Movies'
 import Modal from '../Modal/Modal'
-import {Redirect} from 'react-router-dom'
-import Notfound from '../Notfound/Notfound'
-
+import apiCalls from '../../apiCalls'
 
 class App extends Component {
   constructor(){
@@ -33,35 +31,8 @@ class App extends Component {
   
   filterMovies = (event) => {
     const filteredMovies = this.state.movies.filter((movie) => movie.id === parseInt(event.target.id))
-    this.getOneData(filteredMovies[0].id)
-  }
-
-
-  //make this dynamic and move to its own .js file!!!
-  getAllData = (id) => {
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)  
-    .then(rsp => {
-      console.log(rsp)
-      if (!rsp.ok) {
-        throw new Error('Unable to access the server.  Please try again!')
-      } else {
-              return rsp.json()
-            }           
-        })
-    .then((data) => this.setState({movies: data.movies}))
-    .catch(this.setState({error: true}))
-  }
-
-  getOneData = (id) => {
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)  
-    .then(rsp => {
-      if (!rsp.ok) {
-        throw new Error(rsp.status)
-      } else {
-                return rsp.json()
-            }           
-        })
-    .then((data) => this.setState({movie: {
+    apiCalls.getData(filteredMovies[0].id)
+      .then((data) => this.setState({movie: {
         id: data.movie.id,
         title: data.movie.title,
         posterPath: data.movie.poster_path ,
@@ -78,7 +49,9 @@ class App extends Component {
   }
 
   componentDidMount(){
-    this.getAllData('')
+    apiCalls.getData('')
+    .then(data => this.setState({movies: data.movies}))
+    .catch(this.setState({error: true}))
   }
 
   render() {
@@ -99,10 +72,6 @@ class App extends Component {
    }
   }
 export default App;
-
- //no matter what happens, a modal populates.
-              //we need to write tests.
-              //create single dynamic fetch req.
-              //styling.
-              //add YT link to modal via fetch.
+    //styling.
+    //add YT link to modal via fetch.
 
