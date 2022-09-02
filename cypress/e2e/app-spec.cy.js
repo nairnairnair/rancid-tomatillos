@@ -15,7 +15,7 @@ describe('User navigating main page', () => {
     .get('h1').should('contain', 'Our server appears to be down, please try again later')
   })
   
-  it('Should complete fetch() on a healthy 201 response', () => {
+  it('Should be able to see movie posters on page load', () => {
     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
       statusCode: 201,
       body: {
@@ -39,11 +39,10 @@ describe('User navigating main page', () => {
     .get('img#694919')
   })
 
-
-
-  it('Should confirm that true is equal to true', () => {
-    expect(true).to.equal(true)
+  it('Should be able to return to the home screen by clicking the X button', () => {
+    cy.visit('http://localhost:3000/movies/694919');
+    cy.get('button').click()
+    cy.url().should('eq', 'http://localhost:3000/')
   })
-
 
 })
