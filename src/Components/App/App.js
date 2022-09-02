@@ -25,9 +25,10 @@ class App extends Component {
         runtime: '',
         tagline: '',
         averageRating: '',
-        error: ''
-      }
-    }   
+      },
+      error: false
+    } 
+    console.log(this.state)  
   }
   
   filterMovies = (event) => {
@@ -42,19 +43,20 @@ class App extends Component {
     .then(rsp => {
       console.log(rsp)
       if (!rsp.ok) {
-        throw Error(console.log('you fucked up!'), rsp.status)
+        throw new Error('Unable to access the server.  Please try again!')
       } else {
               return rsp.json()
             }           
         })
     .then((data) => this.setState({movies: data.movies}))
+    .catch(this.setState({error: true}))
   }
 
   getOneData = (id) => {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)  
     .then(rsp => {
       if (!rsp.ok) {
-        throw Error(rsp.status)
+        throw new Error(rsp.status)
       } else {
                 return rsp.json()
             }           
@@ -89,9 +91,8 @@ class App extends Component {
               render={() => { 
                 return <Modal props={this.state.movie}/>
               }
-          }/>
+            }/>
           <Route exact path='/' render={() =><Movies movieArray={this.state.movies} filterMovies={this.filterMovies}/>}/>
-          <Route component={Notfound} />
         </Switch>
       </main>
     )

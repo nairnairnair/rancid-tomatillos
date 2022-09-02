@@ -21,7 +21,7 @@ const Movies = ({movieArray, filterMovies}) => {
 
     return (
         <div className="movies-container">
-            {movieCards}
+            {movieCards.length ? movieCards : <h1 className='error-message'>Our server appears to be down, please try again later</h1>}
         </div>
     )
 }
