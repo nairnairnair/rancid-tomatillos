@@ -1,7 +1,7 @@
 import React from "react";
 import Card from '../Card/Card'
 import './Movies.css'
-import { Link } from 'react-router-dom';
+
 
 const Movies = ({movieArray, filterMovies}) => {
     const movieCards = movieArray.map(movie => {  
@@ -21,7 +21,7 @@ const Movies = ({movieArray, filterMovies}) => {
 
     return (
         <div className="movies-container">
-            {movieCards}
+            {movieCards.length ? movieCards : <h1 className='error-message'>Our server appears to be down, please try again later</h1>}
         </div>
     )
 }

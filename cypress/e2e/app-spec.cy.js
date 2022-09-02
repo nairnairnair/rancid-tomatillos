@@ -12,6 +12,7 @@ describe('User navigating main page', () => {
     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
       statusCode: 401
     })
+    .get('h1').should('contain', 'Our server appears to be down, please try again later')
   })
   
   it('Should complete fetch() on a healthy 201 response', () => {
@@ -44,7 +45,5 @@ describe('User navigating main page', () => {
     expect(true).to.equal(true)
   })
 
-  it('Should confirm that true is equal to true', () => {
-    expect(true).to.equal(true)
-  })
+
 })
