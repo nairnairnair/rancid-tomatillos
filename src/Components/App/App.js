@@ -37,7 +37,7 @@ class App extends Component {
   }
 
 
-  //need to make this dynamic and move to its own .js file!!!
+  //make this dynamic and move to its own .js file!!!
   getAllData = (id) => {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)  
     .then(rsp => {

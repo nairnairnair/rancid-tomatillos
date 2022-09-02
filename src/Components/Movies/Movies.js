@@ -1,7 +1,7 @@
 import React from "react";
 import Card from '../Card/Card'
 import './Movies.css'
-import { Link } from 'react-router-dom';
+
 
 const Movies = ({movieArray, filterMovies}) => {
     const movieCards = movieArray.map(movie => {  

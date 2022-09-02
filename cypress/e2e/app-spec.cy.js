@@ -45,7 +45,5 @@ describe('User navigating main page', () => {
     expect(true).to.equal(true)
   })
 
-  it('Should confirm that true is equal to true', () => {
-    expect(true).to.equal(true)
-  })
+
 })
