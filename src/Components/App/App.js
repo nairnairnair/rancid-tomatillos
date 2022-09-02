@@ -4,6 +4,7 @@ import './App.css'
 import Movies from '../Movies/Movies'
 import Modal from '../Modal/Modal'
 import apiCalls from '../../apiCalls'
+import Header from '../Header/Header'
 
 class App extends Component {
   constructor(){
@@ -24,6 +25,8 @@ class App extends Component {
         tagline: '',
         averageRating: '',
       },
+      // searchResults: [],
+      // search: '',
       error: false
     } 
     console.log(this.state)  
@@ -54,10 +57,20 @@ class App extends Component {
     .catch(this.setState({error: true}))
   }
 
+  //   searchForMovies = (userInput) => {
+  //   const userInput = this.state.search
+  //   const searchResults = this.state.movies.filter((movie) => {
+  //     return movie.title.toLowerCase().includes(userInput.toLowerCase())
+  //   })
+  //   return this.setState({searchResults: searchResults})
+  // } 
+
   render() {
     return (
-      <main className="App"> 
-        <h1>Rancid Tomatillos</h1>
+      <main className="App">
+        <Header allMovies={this.state.movies}
+        //  searchForMovies={this.searchForMovies}
+         />
         <Switch>
           <Route
               exact path="/movies/:id"    
@@ -74,4 +87,5 @@ class App extends Component {
 export default App;
     //styling.
     //add YT link to modal via fetch.
+    //search function
 
