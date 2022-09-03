@@ -4,7 +4,7 @@ import './App.css'
 import Movies from '../Movies/Movies'
 import Modal from '../Modal/Modal'
 import apiCalls from '../../apiCalls'
-import Header from '../Header/Header'
+
 
 class App extends Component {
   constructor(){
@@ -25,12 +25,19 @@ class App extends Component {
         tagline: '',
         averageRating: '',
       },
-      // searchResults: [],
-      // search: '',
+      search: [],
       error: false
     } 
-    console.log(this.state)  
   }
+
+  searchForMovies = (event) => {
+    console.log(event)
+    const searchResults = this.state.movies.filter((movie) => {
+      return movie.title.toLowerCase().includes(event.target.value.toLowerCase())
+    })
+    console.log('results', searchResults)
+    return this.setState({search:searchResults})
+  } 
   
   filterMovies = (event) => {
     const filteredMovies = this.state.movies.filter((movie) => movie.id === parseInt(event.target.id))
@@ -57,20 +64,14 @@ class App extends Component {
     .catch(this.setState({error: true}))
   }
 
-  //   searchForMovies = (userInput) => {
-  //   const userInput = this.state.search
-  //   const searchResults = this.state.movies.filter((movie) => {
-  //     return movie.title.toLowerCase().includes(userInput.toLowerCase())
-  //   })
-  //   return this.setState({searchResults: searchResults})
-  // } 
+  componentDidUpdate(){
+    console.log(this.state.search)
+  }
 
   render() {
     return (
-      <main className="App">
-        <Header allMovies={this.state.movies}
-        //  searchForMovies={this.searchForMovies}
-         />
+      <main className="App"> 
+        {/* <Route component={<Header/>} /> */}
         <Switch>
           <Route
               exact path="/movies/:id"    
@@ -87,5 +88,4 @@ class App extends Component {
 export default App;
     //styling.
     //add YT link to modal via fetch.
-    //search function
 
