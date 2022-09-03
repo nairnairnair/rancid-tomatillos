@@ -8,7 +8,6 @@ const Movies = ({movieArray, filterMovies}) => {
         return ( 
             <div key={movie.id}>
                 <Card 
-                    film={movie}
                     id={movie.id}
                     key={movie.id}
                     title={movie.title}

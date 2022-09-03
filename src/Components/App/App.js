@@ -4,6 +4,7 @@ import './App.css'
 import Movies from '../Movies/Movies'
 import Modal from '../Modal/Modal'
 import apiCalls from '../../apiCalls'
+import Header from '../Header/Header'
 
 
 class App extends Component {
@@ -30,13 +31,16 @@ class App extends Component {
     } 
   }
 
+  addToSearch = (userInput) => {
+    this.setState({search: userInput})
+  }
+
   searchForMovies = (event) => {
-    console.log(event)
-    const searchResults = this.state.movies.filter((movie) => {
+    const searchResults = this.search.movies.filter((movie) => {
       return movie.title.toLowerCase().includes(event.target.value.toLowerCase())
     })
-    console.log('results', searchResults)
-    return this.setState({search:searchResults})
+    event.preventDefault()
+    return this.setState({movies: searchResults})
   } 
   
   filterMovies = (event) => {
@@ -64,14 +68,13 @@ class App extends Component {
     .catch(this.setState({error: true}))
   }
 
-  componentDidUpdate(){
-    console.log(this.state.search)
-  }
-
   render() {
     return (
-      <main className="App"> 
-        {/* <Route component={<Header/>} /> */}
+      <main className="App">
+        <header>
+          <h1>Rancid Tomatillos</h1>
+          <Header searchForMovies={this.searchForMovies} addToSearch={this.addToSearch}/>
+        </header> 
         <Switch>
           <Route
               exact path="/movies/:id"    
