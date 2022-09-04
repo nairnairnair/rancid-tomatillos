@@ -3,8 +3,8 @@ import Card from '../Card/Card'
 import './Movies.css'
 
 
-const Movies = ({movieArray, filterMovies}) => {
-    const movieCards = movieArray.map(movie => {  
+const Movies = ({movies, filterMovies}) => {
+    const movieCards = movies.map(movie => {  
         return ( 
             <div key={movie.id}>
                 <Card 

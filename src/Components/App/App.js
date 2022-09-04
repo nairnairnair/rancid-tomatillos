@@ -26,23 +26,11 @@ class App extends Component {
         tagline: '',
         averageRating: '',
       },
-      search: [],
+      searchResults: [],
       error: false
     } 
   }
 
-  addToSearch = (userInput) => {
-    this.setState({search: userInput})
-  }
-
-  searchForMovies = (event) => {
-    const searchResults = this.search.movies.filter((movie) => {
-      return movie.title.toLowerCase().includes(event.target.value.toLowerCase())
-    })
-    event.preventDefault()
-    return this.setState({movies: searchResults})
-  } 
-  
   filterMovies = (event) => {
     const filteredMovies = this.state.movies.filter((movie) => movie.id === parseInt(event.target.id))
     apiCalls.getData(filteredMovies[0].id)
@@ -62,9 +50,17 @@ class App extends Component {
     }}))
   }
 
+  searchMovies = (searchInput) => {
+    const searchResults = this.state.movies.filter(movie => {
+          return (movie.title.toLowerCase().includes(searchInput.toLowerCase()))
+        })
+
+      this.setState({searchResults:searchResults})
+  }
+
   componentDidMount(){
     apiCalls.getData('')
-    .then(data => this.setState({movies: data.movies}))
+    .then(data => this.setState({movies: data.movies, searchResults: data.movies}))
     .catch(this.setState({error: true}))
   }
 
@@ -73,7 +69,7 @@ class App extends Component {
       <main className="App">
         <header>
           <h1>Rancid Tomatillos</h1>
-          <Header searchForMovies={this.searchForMovies} addToSearch={this.addToSearch}/>
+          <Header searchMovies={this.searchMovies}/>
         </header> 
         <Switch>
           <Route
@@ -82,12 +78,13 @@ class App extends Component {
                 return <Modal props={this.state.movie}/>
               }
             }/>
-          <Route exact path='/' render={() =><Movies movieArray={this.state.movies} filterMovies={this.filterMovies}/>}/>
+          <Route exact path='/' render={() =><Movies movieArray={this.state.movies} filterMovies={this.filterMovies} movies={this.state.searchResults}/>}/>
         </Switch>
       </main>
     )
    }
   }
+  
 export default App;
     //styling.
     //add YT link to modal via fetch.
