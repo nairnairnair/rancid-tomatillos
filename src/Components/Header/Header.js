@@ -1,30 +1,18 @@
 import React, {useState} from "react"
 
-const Header = (allMovies) => {
 
-const [userInput, setUserInput] = useState("")
-
-  const searchForMovies = () => {
-    const searchResults = allMovies.filter((movie) => {
-      return movie.title.toLowerCase().includes(userInput.toLowerCase())
-    })
-    console.log('results', searchResults)
-    return searchResults
-  } 
-  
-    return(
-      <header>
-          <h1>Rancid Tomatillos</h1>
+const Header = (searchForMovies, addToSearch, event) => {
+  const [userInput, setUserInput] = useState("")
+   return (
           <form name="search" className="search-form">
-            <input 
+            <input
+              placeholder="Search for movies here! "
               className="search-bar"
-              value={this.state.search}
-              type="search">
-              onChange={event => setUserInput(event.target.value)}
-            </input>
-            <button onClick={searchForMovies} className="search-button">Search</button>
-          </form> 
-      </header>
+              value='mulan'
+              type="search"
+            />  
+              <button onClick={event => console.log(event)} className="search-button">Search</button>
+              </form>
     )
 }
 

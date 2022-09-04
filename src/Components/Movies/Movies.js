@@ -6,9 +6,8 @@ import './Movies.css'
 const Movies = ({movieArray, filterMovies}) => {
     const movieCards = movieArray.map(movie => {  
         return ( 
-            <div>
+            <div key={movie.id}>
                 <Card 
-                    film={movie}
                     id={movie.id}
                     key={movie.id}
                     title={movie.title}
