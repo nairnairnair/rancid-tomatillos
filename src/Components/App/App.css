@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Netflix Sans;
+  src: url("../../../public/Netflix Sans Medium.otf");
+}
+
 main {
   display: flex;
   flex-direction: column;
