@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Netflix Sans;
+    src: url("../../../public/NetflixSansMedium.otf");
+  }
+
 .movies-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
