@@ -4,6 +4,8 @@
   }
 
 .modal {
+    display: flex;
+    flex-direction: column;
     align-self: center;
     background-color: #181718;
     width: 50vw;
@@ -19,6 +21,60 @@
     width: 50vw;
 }
 
+.top-modal {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height:15vh
+}
+
+.title {
+font-weight: bold;
+font-size: xxx-large;
+margin-bottom: -2vh;
+}
+
+.mid-modal {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.left-modal, .right-modal {
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.bottom-modal {
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 8vw;
+}
+
 .hidden {
     display:none
+}
+
+.overview {
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    margin-bottom: 3vh;
+}
+
+.close-button {
+    background: rgb(234,8,3);
+    background: linear-gradient(180deg, rgba(234,8,3,1) 0%, rgba(150,9,9,1) 74%, rgba(45,7,0,1) 100%);;
+    border: 0;
+    padding: 0 20 px;
+    margin: 20px;
+    font-size: 18px;
+    border-radius: 25px;
+    outline: none;
+    text-align: center;  
 }
