@@ -4,15 +4,12 @@
   }
 
 .modal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    align-self: center;
     background-color: #181718;
     width: 50vw;
-    height: 90vh;
     border-radius: 0.5rem;
-    color: aliceblue
+    color: aliceblue;
+    height: 85vh;
 }
 
 .modal-image {
@@ -20,7 +17,6 @@
     margin-left: 0;
     margin-right: 0;
     width: 50vw;
-    height: auto;
 }
 
 .hidden {

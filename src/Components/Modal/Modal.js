@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Modal = ({props}) => {
     return (
-            <section className="modal" data-backdrop="static">
+            <section className="modal">
                 <img className="modal-image" src={`${props.backdropPath}`} alt={`${props.title} poster`}/>
                 <h1 className="title">{props.title}</h1>
                 <p className="release-date">Release Date: {props.releaseDate}</p>
