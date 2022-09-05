@@ -18,7 +18,7 @@ const Modal = ({props}) => {
                     </div>
                     <div className="right-modal">
                         <p className="genre">{props.genres}</p>
-                        <p className="avg-rating">Average Rating: {props.averageRating}</p>
+                        <p className="avg-rating">Average Rating: {props.averageRating.toFixed(1)}</p>
                     </div>
                 </section>  
                 <article className="overview">{props.overview}</article>
