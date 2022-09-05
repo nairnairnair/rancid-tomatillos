@@ -15,3 +15,13 @@ img {
     width: 200px;
     height: calc(200px * (16/9));
 }
+
+.card-image {
+    will-change: transform;
+    transition: transform 450ms;
+}
+
+.card-image:hover {
+    transition: transform 125ms;
+    transform: translateY(-10px);
+}
