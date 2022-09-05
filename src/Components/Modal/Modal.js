@@ -17,7 +17,7 @@ const Modal = ({props, genres}) => {
                         <p className="runtime">Runtime: {props.runtime} minutes</p>
                     </div>
                     <div className="right-modal">
-                        <h4 className="detail">Genres:</h4>
+                        <h4 className="detail">Genres: {props.genres.length > 1 ? (props.genres).join(', ') : props.genres}</h4>
                         {genres}
                         <p className="avg-rating">Average Rating:{fixedRating}</p>
                     </div>
