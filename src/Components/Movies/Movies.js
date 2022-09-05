@@ -4,10 +4,10 @@ import './Movies.css'
 
 
 const Movies = ({movies, filterMovies}) => {
-    const movieCards = movies.map(movie => {  
-        return ( 
+    const movieCards = movies.map(movie => { 
+        return (           
             <div key={movie.id}>
-                <Card 
+                <Card
                     id={movie.id}
                     key={movie.id}
                     title={movie.title}
@@ -20,7 +20,7 @@ const Movies = ({movies, filterMovies}) => {
 
     return (
         <div className="movies-container">
-            {movieCards.length ? movieCards : <h1 className='error-message'></h1>}
+            {movieCards.length ? movieCards : <h1 className='error-message'>Our server appears to be down, please try again later</h1>}
         </div>
     )
 }
