@@ -1,5 +1,6 @@
 import React, {Component} from "react"
-import { Route, NavLink } from "react-router-dom"
+import { Route } from "react-router-dom"
+import "./Header.css"
 
 class Header extends Component {
     constructor() {
@@ -22,6 +23,7 @@ class Header extends Component {
     render() {
       return (
         <div className="top-section">
+          <img className="rancid-logo" src='../../../rancid-logo.png'/>
           <nav>
           <Route exact path="/" render={()=> {
               return (
@@ -38,7 +40,6 @@ class Header extends Component {
               )
             }}
           />
-            <NavLink exact to="/" onClick={() => this.clearSearch()} className="nav">Return Home</NavLink>
           </nav>
         </div>
       )

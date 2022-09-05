@@ -1,12 +1,20 @@
-@font-face {
+* {
   font-family: Netflix Sans;
   src: url("../../../public/NetflixSansMedium.otf");
 }
 
-main {
+.rancid-logo {
+  width: 60vw;
+  height: 10vh;
+}
+
+.App {
   display: flex;
   flex-direction: column;
   text-align: center;
   background-color: black;
   color: aliceblue;
+  width: 100vw;
+  height: auto;
+  margin: 0;
 }

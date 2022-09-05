@@ -68,7 +68,6 @@ class App extends Component {
     return (
       <main className="App">
         <header>
-          <h1>Rancid Tomatillos</h1>
           <Header searchMovies={this.searchMovies}/>
         </header> 
         <Switch>
