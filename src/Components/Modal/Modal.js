@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 
 const Modal = ({props}) => {
+    const fixedRating = `${Number(props.averageRating).toFixed(1)}%`;
     return (
             <section className="modal">
                 <img className="modal-image" src={`${props.backdropPath}`} alt={`${props.title} poster`}/>
@@ -18,7 +19,7 @@ const Modal = ({props}) => {
                     </div>
                     <div className="right-modal">
                         <p className="genre">{props.genres}</p>
-                        <p className="avg-rating">Average Rating: {props.averageRating.toFixed(1)}</p>
+                        <p className="avg-rating">Average Rating:{fixedRating}</p>
                     </div>
                 </section>  
                 <article className="overview">{props.overview}</article>

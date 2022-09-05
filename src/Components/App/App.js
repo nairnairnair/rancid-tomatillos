@@ -6,7 +6,6 @@ import Modal from '../Modal/Modal'
 import apiCalls from '../../apiCalls'
 import Header from '../Header/Header'
 
-
 class App extends Component {
   constructor(){
     super()
@@ -27,7 +26,8 @@ class App extends Component {
         averageRating: '',
       },
       searchResults: [],
-      error: false
+      error: false,
+      loading: true
     } 
   }
 
@@ -60,7 +60,7 @@ class App extends Component {
 
   componentDidMount(){
     apiCalls.getData('')
-    .then(data => this.setState({movies: data.movies, searchResults: data.movies}))
+    .then(data => this.setState({movies: data.movies, searchResults: data.movies, loading: false}))
     .catch(this.setState({error: true}))
   }
 
@@ -69,6 +69,7 @@ class App extends Component {
       <main className="App">
         <header>
           <Header searchMovies={this.searchMovies}/>
+          {this.state.loading && <h2>Loading...</h2>}
         </header> 
         <Switch>
           <Route
