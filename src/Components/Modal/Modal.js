@@ -2,8 +2,8 @@ import React from "react";
 import './Modal.css'
 import { Link } from 'react-router-dom';
 
-
-const Modal = ({props}) => {
+const Modal = ({props, genres}) => {
+    const fixedRating = `${Number(props.averageRating).toFixed(1)}%`;   
     return (
             <section className="modal">
                 <img className="modal-image" src={`${props.backdropPath}`} alt={`${props.title} poster`}/>
@@ -17,8 +17,9 @@ const Modal = ({props}) => {
                         <p className="runtime">Runtime: {props.runtime} minutes</p>
                     </div>
                     <div className="right-modal">
-                        <p className="genre">{props.genres}</p>
-                        <p className="avg-rating">Average Rating: {props.averageRating}</p>
+                        <h4 className="detail">Genres:</h4>
+                        {genres}
+                        <p className="avg-rating">Average Rating:{fixedRating}</p>
                     </div>
                 </section>  
                 <article className="overview">{props.overview}</article>

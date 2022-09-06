@@ -4,10 +4,10 @@ import './Movies.css'
 
 
 const Movies = ({movies, filterMovies}) => {
-    const movieCards = movies.map(movie => {  
-        return ( 
+    const movieCards = movies.map(movie => { 
+        return (           
             <div key={movie.id}>
-                <Card 
+                <Card
                     id={movie.id}
                     key={movie.id}
                     title={movie.title}

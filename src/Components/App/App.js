@@ -6,7 +6,6 @@ import Modal from '../Modal/Modal'
 import apiCalls from '../../apiCalls'
 import Header from '../Header/Header'
 
-
 class App extends Component {
   constructor(){
     super()
@@ -27,7 +26,8 @@ class App extends Component {
         averageRating: '',
       },
       searchResults: [],
-      error: false
+      error: false,
+      loading: true
     } 
   }
 
@@ -60,8 +60,8 @@ class App extends Component {
 
   componentDidMount(){
     apiCalls.getData('')
-    .then(data => this.setState({movies: data.movies, searchResults: data.movies}))
-    .catch(this.setState({error: true}))
+    .then(data => this.setState({movies: data.movies, searchResults: data.movies, error:false, loading: false}))
+    .catch(this.setState({error: true, loading: false}))
   }
 
   render() {
@@ -72,9 +72,9 @@ class App extends Component {
         </header> 
         <Switch>
           <Route
-              exact path="/movies/:id"    
-              render={() => { 
-                return <Modal props={this.state.movie}/>
+              exact path="/movies/:id"   
+              render={() => {
+                return <Modal props={this.state.movie} />
               }
             }/>
           <Route exact path='/' render={() =><Movies movieArray={this.state.movies} filterMovies={this.filterMovies} movies={this.state.searchResults}/>}/>
@@ -85,6 +85,4 @@ class App extends Component {
   }
   
 export default App;
-    //styling.
-    //add YT link to modal via fetch.
 
