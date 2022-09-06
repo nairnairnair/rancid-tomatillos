@@ -44,6 +44,8 @@
 
 * Andrew: I am still feeling quite burnt out from Mod 2.  There have been some big life changes as well taking place that have made focusing a bit difficult during these past two weeks.
 
+* Emma: I mean... yeah. Andrew about summed it up. I intend to produce something better than the minimum viable product on the next project. 
+
 <br>
 
 ### Future Iterations: <a name="future"></a> <br>
@@ -51,6 +53,8 @@
 * It would be cool to add a login feature and give users the ability to rate movies that they see.
 
 * We would have liked to add movie trailers into the movie previews as well.
+
+* Adding additional UI stylings and more fluid movement using transforms would be another area that would have been nice to polish. 
 
 <br>
 
@@ -72,3 +76,5 @@ Chai<br>
 <br> 
 
 Andrew Miller: [LinkedIn](https://www.linkedin.com/in/andrew-miller-0393b448/) | [GitHub](https://github.com/andrewmiller45)
+
+Emma Russell: [LinkedIn](https://www.linkedin.com/in/emma-mm-russell/) | [GitHub](https://github.com/nairnairnair)
