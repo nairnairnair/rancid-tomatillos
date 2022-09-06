@@ -3,7 +3,6 @@
 ### Table of contents
 * [Under The Hood](#under) 
 * [Challenges](#challenges)
-* [Reflections](#reflections)
 * [Future Iterations](#future)
 * [Technologies Used](#tech)
 * [Contributors](#contributors)
@@ -44,12 +43,6 @@
 ### Challenges: <a name="challenges"></a> <br>
 
 * Andrew: I am still feeling quite burnt out from Mod 2.  There have been some big life changes as well taking place that have made focusing a bit difficult during these past two weeks.
-
-<br>
-
-### Reflections: <a name="reflections"></a> <br>
-
-* 
 
 <br>
 
