@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# Rancid Tomatillos
+​
+### Table of contents
+* [Under The Hood](#under) 
+* [Challenges](#challenges)
+* [Reflections](#reflections)
+* [Future Iterations](#future)
+* [Technologies Used](#tech)
+* [Contributors](#contributors)
+​
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br>
 
-## Available Scripts
+### Under the Hood: <a name="under"></a> <br>
 
-In the project directory, you can run:
+<details>
+<summary>App</summary>
 
-### `npm start`
+* App stored the majority of our functionality.  It held the searchForMovie() function as well as the filterMovies() function.  We ran fetch requests in their own separate files, and called them on componentDidMount() during page load.
+ 
+</details>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<details>
+<summary>Modal</summary>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* We intended on trying to make a Modal pop over the movie cards similar to the Netflix UI.  However, while learning Router, we quickly realized that in order to maximize our learning using that and Switch, that we would need to ditch it.  
 
-### `npm test`
+</details>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<details>
+<summary>Movies</summary>
 
-### `npm run build`
+* Movies was used to iterate through the movies pulled in our fetch, and pass props into individual Cards.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+</details>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<details>
+<summary>Card</summary>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Each card rendered had specific key and information. 
 
-### `npm run eject`
+</details><br>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Challenges: <a name="challenges"></a> <br>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* Andrew: I am still feeling quite burnt out from Mod 2.  There have been some big life changes as well taking place that have made focusing a bit difficult during these past two weeks.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<br>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Reflections: <a name="reflections"></a> <br>
 
-## Learn More
+* 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Future Iterations: <a name="future"></a> <br>
 
-### Code Splitting
+* It would be cool to add a login feature and give users the ability to rate movies that they see.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+* We would have liked to add movie trailers into the movie previews as well.
 
-### Analyzing the Bundle Size
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Technologies used:<br><a name="tech"></a>
+React<br>
+Cypress<br>
+JavaScript<br>
+HTML<br>
+CSS<br>
+Fetch API<br>
+Webpack<br>
+Mocha<br>
+Chai<br>
 
-### Making a Progressive Web App
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Contributors: <a name="contributors"></a> <br>
 
-### Advanced Configuration
+<br> 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Andrew Miller: [LinkedIn](https://www.linkedin.com/in/andrew-miller-0393b448/) | [GitHub](https://github.com/andrewmiller45)
